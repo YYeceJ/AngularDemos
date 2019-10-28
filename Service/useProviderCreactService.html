@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app='myApp'>
+
+<link>
+<script src="../../angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app='myApp' ng-controller='myCtrl'>
+        <h3>{{ hello }}</h3>
+    </div>
+    <script>
+        var app = angular.module('myApp', [])
+        app.controller('myCtrl', [
+            '$scope',
+            'myProvider',
+            function ($scope, myProvider) {
+                $scope.hello = myProvider.getThingFromConfig();
+            }
+        ]);
+        app.provider('myProvider', function () {
+            this.artist = '';
+            this.thingFromConfig = '';
+
+            this.$get = function () {
+                var that = this;
+                return {
+                    getArtist: function () {
+                        return that.artist;
+                    },
+                    getThingFromConfig: function () {
+                        return that.thingFromConfig;
+                    }
+                }
+            };
+        });
+
+        app.config(function (myProviderProvider) {
+            myProviderProvider.thingFromConfig = 'hello service';
+        });
+    </script>
+</body>
+
+</html>

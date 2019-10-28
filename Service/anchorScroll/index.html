@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="anchorScrollExample">
+
+<head>
+    <script src="../../../angular.min.js"></script>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="scrollArea" ng-controller="ScrollController">
+        <a ng-click="gotoBottom()">Go to bottom</a>
+        <a id="bottom"></a> You're at the bottom!
+    </div>
+</body>
+
+</html>

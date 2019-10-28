@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="../angular.min.js"></script>
+
+<body ng-app="myApp">
+
+    <div style="background-color: red">
+        使用元素名调用指令
+        <my-directive></my-directive>
+    </div>
+    <div style="background-color: yellow">
+        使用属性调用指令
+        <div my-directive></div>
+    </div>
+    <div style="background-color: blue">
+        使用类调用指令
+        <div class='my-directive'></div>
+        <strong>必须设置restrict的值为'C'才能通过类名来调用指令</strong>
+    </div>
+    <div style="background-color: green">
+        使用注释调用指令
+        <!-- directive: my-directive -->
+        <p><strong>注意：</strong> 我们需要在该实例添加 <strong>replace</strong> 属性， 否则评论是不可见的。</p>
+
+        <p><strong>注意：</strong> 你必须设置 <b>restrict</b> 的值为 "M" 才能通过注释来调用指令。</p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("myDirective", function () {
+            return {
+                // restrict: 'C',
+                restrict: "M",
+                replace: true,
+                template: "<h1>自定义指令!</h1>"
+            };
+        });
+    </script>
+
+</body>
+
+</html>

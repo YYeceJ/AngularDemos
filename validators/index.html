@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>myDemo</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src="./script.js"></script>
+
+</head>
+<body ng-app="myAPP">
+<div contenteditable="true" ng-model="content" title="Click to modify">
+some
+</div>
+<pre>model:{{content}}</pre>
+<style type="text/css">
+    div[contenteditable]{
+        cursor: pointer;
+        background-color: #D0D0D0;
+    }
+</style>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>myDemo</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src="./script.js"></script>
+
+</head>
+<body ng-app="myStatefulFilterApp">
+<div ng-controller="MyCtrl">
+    Input:<input ng-model="greeting" type="text">
+    Reverse: {{greeting|reverse}}<br>
+    Reverse + uppercase: {{greeting|reverse:true}}<br>
+    Reverse, filtered in controller:{{filteredGreeting}}<br>
+
+</div>
+<div style="margin-top: 30px">
+    <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
+    <span>{{1288323623006 | date:'medium'}}</span><br>
+    <span ng-non-bindable>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>:
+    <span>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span><br>
+    <span ng-non-bindable>{{1288323623006 | date:'MM/dd/yyyy @ h:mma'}}</span>:
+    <span>{{'1288323623006' | date:'MM/dd/yyyy @ h:mma'}}</span><br>
+    <span ng-non-bindable>{{1288323623006 | date:"MM/dd/yyyy 'at' h:mma"}}</span>:
+    <span>{{'1288323623006' | date:"MM/dd/yyyy 'at' h:mma"}}</span><br>
+</div>
+
+<div  style="margin-top: 30px"  ng-controller="filterCtrl">
+    <span>{{childArr | filter:'a'}}</span><br>
+    <span>{{childArr | filter : 4 }}</span><br>
+    <span>{{childArr | filter : {name : 'i'} }}</span><br>
+    <span>{{childArr | filter : func}}</span>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="scopeInheritance">
+
+<link>
+<script src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+
+<body>
+    <div ng-app="scopeInheritance" class="spicy">
+        <div ng-controller="MainCtrl">
+            <p>Good {{timeOfDay}}, {{name}}!</p>
+
+            <div ng-controller="ChildCtrl">
+                <p>Good {{timeOfDay}}, {{name}} !</p>
+
+                <div ng-controller="GrandChildCtrl">
+                    <p>Good {{timeOfDay}}, {{name}}!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
